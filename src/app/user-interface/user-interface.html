@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="title">
+  <h2>Users</h2>
+  <div class="d-flex">
+    <input type="text" placeholder="email">
+    <button>Search</button>
+  </div>
+  </div>
+
+  <div class="card-holder">
+    @for (item of users; track item.email) {
+        <div class="wrapper">
+      <div class="card">
+        <div class="circle">
+        <img [src]="item.profilePicture" alt="User picture">
+        </div>
+
+        @switch (item.role) {
+          @case ('admin') {
+            <span class="admin">{{ item.role }}</span>
+          }
+          @case ('moderate') {
+            <span class="moderate">{{ item.role }}</span>
+          }
+          @case ('user') {
+            <span class="user">{{ item.role }}</span>
+          }
+        }
+        <ul>
+            <li>{{item.username}}</li>
+            <li>{{item.email}}</li>
+            <li>{{item.phone}}</li>
+            <li>{{item.birthdate}}</li>
+        </ul>
+      </div>
+      </div>
+    }
+  </div>
+</div>
+
